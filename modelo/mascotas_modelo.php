@@ -1,8 +1,14 @@
 <?php
-class mascotas_modelo{
+class Mascotas_modelo{
 
     private $db;
     private $datos;
+
+    public function __construct(){
+        require_once("modelo/conectar.php");
+        $this->db = Conectar::conexion();
+        $this-> datos = array();
+    }
 
     public function get_mascotas(){
         $sql = "SELECT * FROM mascotas";
@@ -14,12 +20,12 @@ class mascotas_modelo{
         return $this->datos;
     }
     
-    public function modificar_mascotas($id, $nombre, $especie, $edad, $dueño_id){
-        $consulta =$this->db->query("UPDATE mascotas SET id = '$id', nombre = '$nombre', especie = '$especie', edad = '$edad' WHERE dueño_id = '$dueño_id'");
+    public function modificar_mascotas($id, $nombre, $especie, $edad, $dueno_id){
+        $consulta =$this->db->query("UPDATE mascotas SET id = '$id', nombre = '$nombre', especie = '$especie', edad = '$edad' WHERE dueno_id = '$dueno_id'");
     }
 
-    public function borrar_mascotas($dueño_id){
-        $consulta =$this->db->query("DELETE FROM mascotas WHERE dueño_id = '$dueño_id';");
+    public function borrar_mascotas($dueno_id){
+        $consulta =$this->db->query("DELETE FROM mascotas WHERE dueno_id = '$dueno_id';");
     }
 
     public function crear_mascotas($id, $nombre, $especie, $edad){

@@ -49,7 +49,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
             echo "<td id = 'password". $usuario["id"] ."' class=''>" . $usuario["password"] . "</td>";
             echo "<td id = 'correo". $usuario["id"] ."' class=''>" . $usuario["correo"] . "</td>";
             echo "<td class=''>
-                    <form action='index.php?controlador=usuarios&action=modificar' method='POST'>
+                    <form action='index.php?controlador=usuarios&action=modificar_usuarios' method='POST'>
                     <input type='text' name='usuarioBorrar' hidden value='" . $usuario["id"] . "'>
                     <input class='' type='submit' value='BORRAR'>
                     </form>

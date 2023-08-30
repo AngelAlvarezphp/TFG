@@ -19,7 +19,7 @@ if(getPost("datos") =="datos"){
 
     echo"
     <h3>Actualizar usuario</h3>
-        <form class='miForm' action='index.php?controlador=usuarios&action=modificar' method='POST'>
+        <form class='miForm' action='index.php?controlador=usuarios&action=modificar_usuarios' method='POST'>
             <tr>
                 <input type='hidden' name='id' value='$id'/>
                 <th><labelfor='usuario' class='miEtiqueta'>Usuario</label></th>
@@ -37,7 +37,7 @@ if(getPost("datos") =="datos"){
                 <th><label for='correo' class='miEtiqueta' >Correo</label></th>
                 <th><input type='text' name='correoModificar' class='miInput' value='$correo' required/></th><br>
             </tr>
-            <!--tr>
+            <!-- tr>
                 <th><labelfor='usuario' class='miEtiqueta'>tipo_usuario</label></th>
                 <th><input type='text' name='asdaDS' class='miInput' value='$tipo_usuario' required/></th><br>
             </tr-->
@@ -55,7 +55,7 @@ if(getPost("datos") =="datos"){
         $usuario = new Usuarios_modelo();
         
         if(isset($_POST['usuario'])){
-           
+
             // Seleccionar el nombre del formulario
             $nombre=isset($_POST['usuario'])? $_POST['usuario']:'';
             // Seleccionar la contraseña  del formulario
@@ -71,9 +71,9 @@ if(getPost("datos") =="datos"){
 
         $array_usuario = $usuario -> get_usuarios();
         require_once("vista/nuevo_usuario_vista.php");
-    
+
     }
-     
+
     function logout(){
         session_start();
         session_destroy();
@@ -81,7 +81,7 @@ if(getPost("datos") =="datos"){
     }
 
 
-    function modificar(){
+    function modificar_usuarios(){
         if (!isset($_SESSION["usuario"])) {
             header("Location: index.php");
         }
@@ -101,6 +101,7 @@ if(getPost("datos") =="datos"){
     
         if (isset($_POST["usuarioBorrar"])) {
             $id = getPost("usuarioBorrar");
+
             $usuario->eliminar_usuario($id);
         }
     
