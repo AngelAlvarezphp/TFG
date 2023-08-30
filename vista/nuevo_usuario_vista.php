@@ -41,7 +41,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
     ";
 
     if(isset($array_usuario)){
-        echo "<table style = 'background-color: #ffffff80' border><tr><th class ='cabeza'>Nombre</th><th class ='cabeza'>Apellido</th><th class ='cabeza'>Password</th><th class ='cabeza'>Correo</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";
+        echo "<table><tr><th class ='cabeza'>Nombre</th><th class ='cabeza'>Apellido</th><th class ='cabeza'>Password</th><th class ='cabeza'>Correo</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";
         foreach ($array_usuario as $usuario) {
             echo "<tr class=''>";
             echo "<td id = 'usuario" . $usuario["id"] . "'class=''>" . $usuario["usuario"] . "</td>";

@@ -9,7 +9,7 @@
     <script src="js/ajax.js"></script>
     <script src="js/mascotas.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script defer type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7CCok1QBjuzlRdub7E8-1qhHhwYRPzIU&callback=initMap"></script>
 </head>
 <body>

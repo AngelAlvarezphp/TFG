@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function getPost($varmascota) {
     if(isset($_POST[$varmascota])){
         return $_POST[$varmascota];
@@ -51,30 +53,41 @@ if(getPost("datos") =="datos"){
     
         if (isset($_POST['IdModificar']) && isset($_POST['NombreModificar']) && isset($_POST['EspecieModificar']) && isset($_POST['EdadModificar'])){
             
-            $dueno_id = getPost("dueno_id");
+            
             $id = getPost("IdModificar");
             $nombre = getPost("NombreModificar");
             $especie = getPost("EspecieModificar");
             $edad = getPost("EdadModificar");
+            // $dueno_id = getPost("dueno_id");
 
-            $mascota->modificar_mascotas($dueno_id, $id, $nombre, $especie, $edad);
+            $mascota->modificar_mascotas($id, $nombre, $especie, $edad, $dueno_id);
         }
     
-        if (isset($_POST["idBorrar"])) {
-            $id = getPost("idBorrar");
+        if (isset($_POST["mascotaBorrar"])) {
+            $id = getPost("mascotaBorrar");
 
             $mascota->borrar_mascotas($id);
         }
+
+        echo "valores del post:";
+        print_r($_POST);
     
         if (isset($_POST["id"]) && isset($_POST['nombre']) && isset($_POST["especie"]) && isset($_POST["edad"])) {
+
             $id = getPost("id");
             $nombre = getPost("nombre");
             $especie = getPost("especie");
             $edad = getPost("edad");
-            
-            $mascota->crear_mascotas($id, $nombre, $especie, $edad);
+
+            $dueno_id = getPost("dueno_id");
+            if ($dueno_id == '') {
+                $dueno_id = $_SESSION["login"]->id;
+            }
+
+            $mascota->crear_mascotas($id, $nombre, $especie, $edad, $dueno_id);
         }
         $array_mascota = $mascota -> get_mascotas();
+
         require_once("vista/mascotas_vista.php");
     }
 
