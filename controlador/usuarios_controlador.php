@@ -61,9 +61,15 @@ if(getPost("datos") =="datos"){
             // Seleccionar la contraseña  del formulario
             $pass=isset($_POST['pass'])? $_POST['pass']:'';
             // Comprobar que ese usuario y esa contraseña está en la tabla de usuario
-            if($usuario->login($nombre,$pass)){
+            $resultLogin = $usuario->login($nombre,$pass);
+            
+            echo "<br/> resultLogin <br/> " . $resultLogin->id;
+            echo "<br/> resultLogin <br/> " . $resultLogin->usuario;
+            
+            if($resultLogin != null){
                 // Si esta relleno $_SESSION de ['usuario]
-                $_SESSION['usuario'] = $nombre;
+                $_SESSION['usuario'] = $resultLogin->usuario;
+                $_SESSION['login'] = $resultLogin;
                 
             }else $error = "Usuario mal";
         

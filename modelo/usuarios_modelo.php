@@ -13,6 +13,7 @@ class Usuarios_modelo{
     public function get_usuarios(){
         $sql = "SELECT * FROM usuarios";
         $consulta =$this->db->query($sql);
+        $this->datos = [];
         while($registro = $consulta ->fetch_assoc()){
             $this->datos[] = $registro;
         }
@@ -21,14 +22,17 @@ class Usuarios_modelo{
     }
 
     public function login($nombre, $password){
-        $sql = "SELECT * FROM usuarios where usuario = '$nombre' and password ='$password'";
+        $sql = "SELECT id, usuario FROM usuarios where usuario = '$nombre' and password ='$password'";
+        $usuario =  null;
         if($consulta =$this->db->query($sql)){
-        while($registro = $consulta ->fetch_assoc()){
-            $this->datos[] = $registro;
+            while($registro = $consulta ->fetch_assoc()){
+                $this->datos[] = $registro;
+                $usuario = new stdClass();
+                $usuario->id = $registro["id"];
+                $usuario->usuario = $registro["usuario"];
+            }
         }
-
-        return ($consulta->num_rows > 0);
-        }
+        return $usuario;
     }
 
     public function actualizar_usuario($id, $usuario, $apellido, $password, $correo){

@@ -5,7 +5,7 @@ function modificar_mascotas(i){
         type: 'post',
         data: {
             "datos":"datos",
-            "id": $("#id"+i).text(),
+            "id": i,
             "nombre":$("#nombre"+i).text(),
             "especie":$("#especie"+i).text(),
             "edad":$("#edad"+i).text()

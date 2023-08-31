@@ -1,12 +1,20 @@
 <?php
 
+print_r($array_mascota);
+
+print_r($array_mascota !=0 );
+
+
+
 if ($array_mascota!=0) {
     require_once("vista/menu_vista.php");
+
+    //print_r($_SESSION['login']);
 
     echo"
 
     <div id='inserta'>
-    <h3>Crear mascota</h3>
+    <h3>Crear mascota </h3>
     <table class = 'tablaForm'>
         <form class='miForm' action='' method='POST'>
 
@@ -43,19 +51,19 @@ if ($array_mascota!=0) {
         echo "<table style = 'background-color: #ffffff80' border><tr><th class ='cabeza'>Id</th><th class ='cabeza'>Nombre</th><th class ='cabeza'>Especie</th><th class ='cabeza'>Edad</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";
         foreach ($array_mascota as $mascota) {
             echo "<tr class=''>";
-            echo "<td id = 'id" . $mascota["dueno_id"] . "'class=''>" . $mascota["id"] . "</td>";
-            echo "<td id = 'nombre" . $mascota["dueno_id"] . "'class=''>" . $mascota["nombre"] . "</td>";
-            echo "<td id = 'especie". $mascota["dueno_id"] ."' class=''>" . $mascota["especie"] . "</td>";
-            echo "<td id = 'edad". $mascota["dueno_id"] ."' class=''>" . $mascota["edad"] . "</td>";
+            echo "<td id = 'id" . $mascota["id"] . "'class=''>" . $mascota["id"] . "</td>";
+            echo "<td id = 'nombre" . $mascota["id"] . "'class=''>" . $mascota["nombre"] . "</td>";
+            echo "<td id = 'especie". $mascota["id"] ."' class=''>" . $mascota["especie"] . "</td>";
+            echo "<td id = 'edad". $mascota["id"] ."' class=''>" . $mascota["edad"] . "</td>";
             echo "<td class=''>
                     <form action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
-                    <input type='text' name='mascotaBorrar' hidden value='" . $mascota["dueno_id"] . "'>
+                    <input type='text' name='mascotaBorrar' hidden value='" . $mascota["id"] . "'>
                     <input class='' type='submit' value='BORRAR'>
                     </form>
                 </td>
                 <td class=''>    
-                    <input type='text' name='mascotaModificar' hidden value='" . $mascota["dueno_id"] . "'>
-                    <input class='' type='button' onclick=modificar_mascotas('". $mascota["dueno_id"] ."') value='MODIFICAR'>
+                    <input type='text' name='mascotaModificar' hidden value='" . $mascota["id"] . "'>
+                    <input class='' type='button' onclick=modificar_mascotas('". $mascota["id"] ."') value='MODIFICAR'>
                 </td>";
             echo "</tr>";
           }
