@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="crearusuario.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
-
 
 <?php
 
@@ -23,7 +9,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
     <div id='inserta'>
     <h3>Crear usuario</h3>
     <table class = 'tablaForm'>
-        <form class='miForm' action='' method='POST'>
+        <form class='miForm' action='index.php?controlador=usuarios&action=modificar_usuarios' method='POST'>
 
             <tr>
                 <th><labelfor='usuario' class='miEtiqueta'>Usuario</label></th>
@@ -42,7 +28,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
                 <th><input type='text' name='correo' class='miInput' required/></th>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit' id='crear_usuarios'>CREAR USUARIO</button><th>
+                <th colspan = 2><button onclick='if(!validarUsuario()){event.preventDefault()}' type='submit' id='crear_usuarios'>CREAR USUARIO</button><th>
             </tr>
         </form>
     </table>

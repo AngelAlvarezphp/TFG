@@ -54,7 +54,7 @@ if(getPost("datos") =="datos"){
         $error="";
         $usuario = new Usuarios_modelo();
         
-        if(isset($_POST['usuario'])){
+        if(isset($_POST['usuario']) && isset($_POST['pass'])){
 
             // Seleccionar el nombre del formulario
             $nombre=isset($_POST['usuario'])? $_POST['usuario']:'';
@@ -62,10 +62,7 @@ if(getPost("datos") =="datos"){
             $pass=isset($_POST['pass'])? $_POST['pass']:'';
             // Comprobar que ese usuario y esa contraseña está en la tabla de usuario
             $resultLogin = $usuario->login($nombre,$pass);
-            
-            echo "<br/> resultLogin <br/> " . $resultLogin->id;
-            echo "<br/> resultLogin <br/> " . $resultLogin->usuario;
-            
+
             if($resultLogin != null){
                 // Si esta relleno $_SESSION de ['usuario]
                 $_SESSION['usuario'] = $resultLogin->usuario;
