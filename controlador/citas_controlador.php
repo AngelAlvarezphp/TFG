@@ -46,10 +46,10 @@ if(getPost("datos") =="datos"){
         
             $cita = new Citas_modelo();
         
-            if (isset($_POST['IdModificar']) && isset($_POST['Mascota_idModificar']) && isset($_POST['FechaModificar']) && isset($_POST['DescripcionModificar'])){
+            if (isset($_POST['id']) && isset($_POST['Mascota_idModificar']) && isset($_POST['FechaModificar']) && isset($_POST['DescripcionModificar'])){
                 
                 
-                $id = getPost("IdModificar");
+                $id = getPost("id");
                 $mascota_id = getPost("Mascota_idModificar");
                 $fecha = getPost("FechaModificar");
                 $descripcion = getPost("DescripcionModificar");
@@ -57,8 +57,8 @@ if(getPost("datos") =="datos"){
                 $cita->modificar_citas($id, $mascota_id, $fecha, $descripcion);
             }
         
-            if (isset($_POST["citaBorrar"])) {
-                $id = getPost("citaBorrar");
+            if (isset($_POST["citasBorrar"])) {
+                $id = getPost("citasBorrar");
     
                 $cita->borrar_citas($id);
             }
@@ -71,13 +71,8 @@ if(getPost("datos") =="datos"){
                 $mascota_id = getPost("mascota_id");
                 $fecha = getPost("fecha");
                 $descripcion = getPost("descripcion");
-    
-                $id = getPost("id");
-                if ($id == '') {
-                    $id = $_SESSION["login"]->id;
-                }
-    
-                $cita->crear_citas($id, $mascota_id, $fecha, $descripcion);
+
+                $cita->crear_citas($mascota_id, $fecha, $descripcion);
             }
             $array_cita = $cita -> get_citas();
     

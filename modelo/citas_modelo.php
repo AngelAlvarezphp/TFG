@@ -22,16 +22,16 @@ class Citas_modelo{
     }
     
     public function modificar_citas($id, $mascota_id, $fecha, $descripcion){
-        $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE id = '$id'");
+        $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE cita_id = '$id'");
     }
 
     public function borrar_citas($id){
-        $consulta =$this->db->query("DELETE FROM citas WHERE id = '$id';");
+        $consulta =$this->db->query("DELETE FROM citas WHERE cita_id = '$id';");
     }
 
-    public function crear_citas($id, $mascota_id, $fecha, $descripcion){
+    public function crear_citas($mascota_id, $fecha, $descripcion){
     
-        $consulta = $this->db->query("INSERT INTO citas (id, mascota_id, fecha, descripcion) VALUES ('$id', '$mascota_id', '$fecha', '$descripcion');");
+        $consulta = $this->db->query("INSERT INTO citas (mascota_id, fecha, descripcion) VALUES ('$mascota_id', '$fecha', '$descripcion');");
     }
 
 }

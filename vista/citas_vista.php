@@ -47,18 +47,18 @@ if ($array_cita!=0) {
         echo "<table style = 'background-color: #ffffff80' border><tr><th class ='cabeza'>Mascota_id</th><th class ='cabeza'>Fecha</th><th class ='cabeza'>Descripcion</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";
         foreach ($array_cita as $cita) {
             echo "<tr class=''>";
-            echo "<td id = 'mascota_id" . $cita["id"] . "'class=''>" . $cita["mascota_id"] . "</td>";
-            echo "<td id = 'fecha" . $cita["id"] . "'class=''>" . $cita["fecha"] . "</td>";
-            echo "<td id = 'descripcion". $cita["id"] ."' class=''>" . $cita["descripcion"] . "</td>";
+            echo "<td id = 'mascota_id" . $cita["cita_id"] . "'class=''>" . $cita["mascota_id"] . "</td>";
+            echo "<td id = 'fecha" . $cita["cita_id"] . "'class=''>" . $cita["fecha"] . "</td>";
+            echo "<td id = 'descripcion". $cita["cita_id"] ."' class=''>" . $cita["descripcion"] . "</td>";
             echo "<td class=''>
                     <form action='index.php?controlador=citas&action=modificar_citas' method='POST'>
-                    <input type='text' name='citasBorrar' hidden value='" . $cita["id"] . "'>
+                    <input type='text' name='citasBorrar' hidden value='" . $cita["cita_id"] . "'>
                     <input class='' type='submit' value='BORRAR'>
                     </form>
                 </td>
                 <td class=''>    
-                    <input type='text' name='citaModificar' hidden value='" . $cita["id"] . "'>
-                    <input class='' type='button' onclick=modificar_citas('". $cita["id"] ."') value='MODIFICAR'>
+                    <input type='text' name='citaModificar' hidden value='" . $cita["cita_id"] . "'>
+                    <input class='' type='button' onclick=modificar_citas('". $cita["cita_id"] ."') value='MODIFICAR'>
                 </td>";
             echo "</tr>";
         }

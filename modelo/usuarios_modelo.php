@@ -44,8 +44,9 @@ class Usuarios_modelo{
     }
 
     public function nuevo_usuario($usuario, $apellido, $password, $correo ){
-        $maxIdResult = $this->db->query("SELECT max(id)+1 from usuarios;");
-        $id = $maxIdResult->fetch_assoc()[0];
+        $maxIdResult = $this->db->query("SELECT max(id)+1 as nextid from usuarios;");
+        $row = $maxIdResult->fetch_assoc();
+        $id = $row['nextid'];
         $consulta = $this->db->query("INSERT INTO usuarios (id, usuario, apellido, password, correo) VALUES ('$id', '$usuario', '$apellido', '$password', '$correo');");
     }
 
