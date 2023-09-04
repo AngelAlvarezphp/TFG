@@ -66,13 +66,13 @@ if ($array_mascota!=0) {
                     <input class='' type='button' onclick=modificar_mascotas('". $mascota["id"] ."') value='MODIFICAR'>
                 </td>";
             echo "</tr>";
-          }
+        }
     echo "</table>";
     echo "<br>";
     }
 
 }else{
-   
+
 }
 
 ?>

@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="crearusuario.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
 <?php
 
 if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la tabla
@@ -12,7 +27,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
 
             <tr>
                 <th><labelfor='usuario' class='miEtiqueta'>Usuario</label></th>
-                <th><input type='text' name='usuario' class='miInput' required/></th>
+                <th><input type='text' id='nombre' name='usuario' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><labelfor='apellido' class='miEtiqueta'>Apellido</label></th>
@@ -27,7 +42,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
                 <th><input type='text' name='correo' class='miInput' required/></th>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit'>CREAR USUARIO</button><th>
+                <th colspan = 2><button type='submit' id='crear_usuarios'>CREAR USUARIO</button><th>
             </tr>
         </form>
     </table>

@@ -71,7 +71,9 @@ if(getPost("datos") =="datos"){
                 $_SESSION['usuario'] = $resultLogin->usuario;
                 $_SESSION['login'] = $resultLogin;
                 
-            }else $error = "Usuario mal";
+            }else{
+                require_once("vista/nuevo_usuario_vista.php");
+            } 
         
         }
 

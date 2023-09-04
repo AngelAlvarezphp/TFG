@@ -23,6 +23,12 @@ require_once("controlador/usuarios_controlador.php");
             </div>
     </form>
 </div>
+
+<div>
+
+    <button type='submit' class=''> registrarse </button>
+
+</div>
 <?php
 require_once("controlador/usuarios_controlador.php");
 ?>

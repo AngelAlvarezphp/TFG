@@ -13,6 +13,7 @@ class Citas_modelo{
     public function get_citas(){
         $sql = "SELECT * FROM citas";
         $consulta =$this->db->query($sql);
+        $this->datos = [];
         while($registro = $consulta ->fetch_assoc()){
             $this->datos[] = $registro;
         }
@@ -28,9 +29,8 @@ class Citas_modelo{
         $consulta =$this->db->query("DELETE FROM citas WHERE id = '$id';");
     }
 
-    public function crear_citas($mascota_id, $fecha, $descripcion){
-        $maxIdResult = $this->db->query("SELECT max(id)+1 from citas;");
-        $id = $maxIdResult->fetch_assoc()[0];
+    public function crear_citas($id, $mascota_id, $fecha, $descripcion){
+    
         $consulta = $this->db->query("INSERT INTO citas (id, mascota_id, fecha, descripcion) VALUES ('$id', '$mascota_id', '$fecha', '$descripcion');");
     }
 

@@ -58,7 +58,7 @@ if(getPost("datos") =="datos"){
             $nombre = getPost("NombreModificar");
             $especie = getPost("EspecieModificar");
             $edad = getPost("EdadModificar");
-            // $dueno_id = getPost("dueno_id");
+            $dueno_id = getPost("dueno_id");
 
             $mascota->modificar_mascotas($id, $nombre, $especie, $edad, $dueno_id);
         }

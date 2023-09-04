@@ -30,7 +30,7 @@ class Mascotas_modelo{
     }
 
     public function crear_mascotas($id, $nombre, $especie, $edad, $dueno_id){
-       
+    
         $consulta =$this->db->query("INSERT into mascotas (id, nombre, especie, edad, dueno_id) values ('$id', '$nombre', '$especie', '$edad', '$dueno_id');");
     }
 

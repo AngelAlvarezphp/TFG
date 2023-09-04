@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function getPost($varcita) {
     if(isset($_POST[$varcita])){
         return $_POST[$varcita];
@@ -20,22 +22,66 @@ if(getPost("datos") =="datos"){
                 <input type='hidden' name='id' value='$id'/>
 
                 <th><labelfor='mascota_id' class='Cita'>Id</label></th>
-                <th><input type='text' name='IdModificar' class='miInput' value='$mascota_id' required/></th><br>
+                <th><input type='text' name='Mascota_idModificar' class='miInput' value='$mascota_id' required/></th><br>
             </tr>
             <tr>
                 <th><labelfor='fecha' class='miEtiqueta'> Fecha</label></th>
-                <th><input type='text' name='FeachaModificar' class='miInput' value='$fecha' required/></th><br>
+                <th><input type='text' name='FechaModificar' class='miInput' value='$fecha' required/></th><br>
             </tr>
             <tr>
                 <th><label for='descripcion' class='miEtiqueta' >Descripcion</label></th>
                 <th><input type='text' name='DescripcionModificar' class='miInput' value='$descripcion' required/></th><br>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit'>ACTUALIZAR DESCRIPCION</button><th>
+                <th colspan = 2><button type='submit'>ACTUALIZAR CITAS</button><th>
             </tr>
         </form>
     <br>
     ";
 
+}else{
 
+        require_once("modelo/citas_modelo.php");
+        function modificar_citas(){
+        
+            $cita = new Citas_modelo();
+        
+            if (isset($_POST['IdModificar']) && isset($_POST['Mascota_idModificar']) && isset($_POST['FechaModificar']) && isset($_POST['DescripcionModificar'])){
+                
+                
+                $id = getPost("IdModificar");
+                $mascota_id = getPost("Mascota_idModificar");
+                $fecha = getPost("FechaModificar");
+                $descripcion = getPost("DescripcionModificar");
+    
+                $cita->modificar_citas($id, $mascota_id, $fecha, $descripcion);
+            }
+        
+            if (isset($_POST["citaBorrar"])) {
+                $id = getPost("citaBorrar");
+    
+                $cita->borrar_citas($id);
+            }
+    
+            echo "valores del post:";
+            print_r($_POST);
+        
+            if (isset($_POST['mascota_id']) && isset($_POST["fecha"]) && isset($_POST["descripcion"])) {
+    
+                $mascota_id = getPost("mascota_id");
+                $fecha = getPost("fecha");
+                $descripcion = getPost("descripcion");
+    
+                $id = getPost("id");
+                if ($id == '') {
+                    $id = $_SESSION["login"]->id;
+                }
+    
+                $cita->crear_citas($id, $mascota_id, $fecha, $descripcion);
+            }
+            $array_cita = $cita -> get_citas();
+    
+            require_once("vista/citas_vista.php");
+        }
+}
 ?>
