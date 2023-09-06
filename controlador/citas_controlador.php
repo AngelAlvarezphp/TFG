@@ -63,8 +63,6 @@ if(getPost("datos") =="datos"){
                 $cita->borrar_citas($id);
             }
     
-            echo "valores del post:";
-            print_r($_POST);
         
             if (isset($_POST['mascota_id']) && isset($_POST["fecha"]) && isset($_POST["descripcion"])) {
     

@@ -23,22 +23,33 @@ if(getPost("datos") =="datos"){
                 <input type='hidden' name='dueno_id' value='$dueno_id'/>
                 
                 <th><labelfor='id' class='Mascota'>Id</label></th>
-                <th><input type='text' name='IdModificar' class='miInput' value='$id' required/></th><br>
+                <th><input type='text'  id='mascota_id' name='IdModificar' class='miInput' value='$id' required/></th><br>
             </tr>
             <tr>
                 <th><labelfor='nombre' class='miEtiqueta'> Nombre</label></th>
-                <th><input type='text' name='NombreModificar' class='miInput' value='$nombre' required/></th><br>
+                <th><input type='text'  id='nombre' name='NombreModificar' class='miInput' value='$nombre' required/></th><br>
             </tr>
             <tr>
                 <th><label for='especie' class='miEtiqueta' >Especie</label></th>
-                <th><input type='text' name='EspecieModificar' class='miInput' value='$especie' required/></th><br>
+                <th><select id='especie' name='EspecieModificar' class='miInput' value='$especie' required</th><br>
+                <option value='gato'>gato</option>
+                <option value='perro'>perro</option>
+                <option value='conejo'>conejo</option>
+                <option value='hamster'>hamster</option>
+                <option value='loro'>loro</option>
+                <option value='perdiz'>perdiz</option>
+                <option value='paloma'>paloma</option>
+                <option value='tortuga'>tortuga</option>
+                <option value='iguana'>iguana</option>
+                <option value='camaleon'>camaleon</option>
+                </select><br>
             </tr>
             <tr>
                 <th><label for='edad' class='miEtiqueta' >Edad</label></th>
-                <th><input type='text' name='EdadModificar' class='miInput' value='$edad' required/></th><br>
+                <th><input type='text'  id='edad' name='EdadModificar' class='miInput' value='$edad' required/></th><br>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit'>ACTUALIZAR MASCOTA</button><th>
+                <th colspan = 2><button onclick='if(!validarMascota()){event.preventDefault()}' type='submit'>ACTUALIZAR MASCOTA</button><th>
             </tr>
         </form>
     <br>
@@ -69,8 +80,6 @@ if(getPost("datos") =="datos"){
             $mascota->borrar_mascotas($id);
         }
 
-        echo "valores del post:";
-        print_r($_POST);
     
         if (isset($_POST["id"]) && isset($_POST['nombre']) && isset($_POST["especie"]) && isset($_POST["edad"])) {
 

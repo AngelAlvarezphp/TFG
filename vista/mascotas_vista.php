@@ -1,15 +1,8 @@
 <?php
 
-print_r($array_mascota);
-
-print_r($array_mascota !=0 );
-
-
-
 if ($array_mascota!=0) {
     require_once("vista/menu_vista.php");
 
-    //print_r($_SESSION['login']);
 
     echo"
 
@@ -20,22 +13,34 @@ if ($array_mascota!=0) {
 
             <tr>
                 <th><labelfor='id' class='miEtiqueta'>Id</label></th>
-                <th><input type='text' name='id' class='miInput' required/></th>
+                <th><input type='text' name='id' id='mascota_id' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><labelfor='nombre' class='miEtiqueta'>Nombre</label></th>
-                <th><input type='text' name='nombre' class='miInput' required/></th>
+                <th><input type='text' name='nombre' id='nombre' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><label for='especie' class='miEtiqueta' >Especie</label></th>
-                <th><input type='text' name='especie' class='miInput' required/></th>
+                <th><select name='especie' id='especie'</th>
+                <option value='gato'>gato</option>
+                <option value='perro'>perro</option>
+                <option value='conejo'>conejo</option>
+                <option value='hamster'>hamster</option>
+                <option value='loro'>loro</option>
+                <option value='perdiz'>perdiz</option>
+                <option value='paloma'>paloma</option>
+                <option value='tortuga'>tortuga</option>
+                <option value='iguana'>iguana</option>
+                <option value='camaleon'>camaleon</option>
+                </select>
+
             </tr>
             <tr>
                 <th><label for='edad' class='miEtiqueta' >Edad</label></th>
-                <th><input type='text' name='edad' class='miInput' required/></th>
+                <th><input type='text' name='edad' id='edad' class='miInput' required/></th>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit'>CREAR MASCOTAS</button><th>
+                <th colspan = 2><button onclick='if(!validarMascota()){event.preventDefault()}' type='submit'>CREAR MASCOTAS</button><th>
             </tr>
         </form>
     </table>

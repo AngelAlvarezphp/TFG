@@ -17,15 +17,15 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
             </tr>
             <tr>
                 <th><labelfor='apellido' class='miEtiqueta'>Apellido</label></th>
-                <th><input type='text' name='apellido' class='miInput' required/></th>
+                <th><input type='text' id='apellido' name='apellido' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><label for='password' class='miEtiqueta' >Password</label></th>
-                <th><input type='password' name='password' class='miInput' required/></th>
+                <th><input type='password' id='password' name='password' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><label for='correo' class='miEtiqueta' >Correo</label></th>
-                <th><input type='text' name='correo' class='miInput' required/></th>
+                <th><input type='text' id='correo' name='correo' class='miInput' required/></th>
             </tr>
             <tr>
                 <th colspan = 2><button onclick='if(!validarUsuario()){event.preventDefault()}' type='submit' id='crear_usuarios'>CREAR USUARIO</button><th>

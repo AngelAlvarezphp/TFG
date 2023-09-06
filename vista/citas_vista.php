@@ -1,15 +1,9 @@
 <?php
 
-//print_r($array_cita);
-
-print_r($array_cita !=0 );
-
-
 
 if ($array_cita!=0) {
     require_once("vista/menu_vista.php");
 
-    print_r($_SESSION['login']);
 
     echo"
 
@@ -20,18 +14,18 @@ if ($array_cita!=0) {
 
             <tr>
                 <th><labelfor='mascota_id' class='miEtiqueta'>Mascota_id</label></th>
-                <th><input type='text' name='mascota_id' class='miInput' required/></th>
+                <th><input type='text' name='mascota_id' id=mascota_id' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><label for='fecha' class='miEtiqueta' >Fecha</label></th>
-                <th><input type='text' name='fecha' class='miInput' required/></th>
+                <th><input type='text' name='fecha' id='fecha' class='miInput' required/></th>
             </tr>
             <tr>
                 <th><label for='descripcion' class='miEtiqueta' >Descripcion</label></th>
-                <th><input type='text' name='descripcion' class='miInput' required/></th>
+                <th><input type='text' name='descripcion' id='descripcion' class='miInput' required/></th>
             </tr>
             <tr>
-                <th colspan = 2><button type='submit'>CREAR CITAS</button><th>
+                <th colspan = 2><button onclick='if(!validarCitas()){event.preventDefault()}' type='submit'>CREAR CITAS</button><th>
             </tr>
         </form>
     </table>
