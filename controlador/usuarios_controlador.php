@@ -1,7 +1,7 @@
 <?php
-
-session_start();
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 function getPost($varname) {
     if(isset($_POST[$varname])){
         return $_POST[$varname];
@@ -80,7 +80,6 @@ if(getPost("datos") =="datos"){
     }
 
     function logout(){
-        session_start();
         session_destroy();
         header("Location: index.php");
     }
