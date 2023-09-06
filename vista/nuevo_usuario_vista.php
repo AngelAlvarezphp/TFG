@@ -36,10 +36,17 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
     </div>
     ";
 
-    echo "<div id='modif'>
-
-    </div>
-    ";
+    echo "<div id='modif'></div>";
+    echo "<div id='jsAlert' class='d-none alert alert-danger'></div>";
+    if(isset($mensajeConfirmacion)) {
+        if (strpos($mensajeConfirmacion, 'Error') === false) {
+            echo '<div class="alert alert-success" role="alert">';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">';
+        }
+        echo $mensajeConfirmacion;
+        echo "</div>";
+    } 
 
     if(isset($array_usuario)){
         echo "<table><tr><th class ='cabeza'>Nombre</th><th class ='cabeza'>Apellido</th><th class ='cabeza'>Password</th><th class ='cabeza'>Correo</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";

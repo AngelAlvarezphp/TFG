@@ -1,5 +1,6 @@
 function modificar(i){
     $("#inserta").hide();
+    $('.alert').hide();
     $("#modif").show();
     $.ajax({
         type: 'post',
@@ -24,6 +25,7 @@ function modificar(i){
 
 function modificar_mascotas(i){
     $("#inserta").hide();
+    $('.alert').hide();
     $("#modif").show();
     $.ajax({
         type: 'post',
@@ -48,6 +50,7 @@ function modificar_mascotas(i){
 
 function modificar_citas(i){
     $("#inserta").hide();
+    $('.alert').hide();
     $("#modif").show();
     $.ajax({
         type: 'post',
