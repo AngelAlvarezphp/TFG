@@ -1,41 +1,60 @@
 
+function ocultarError() {
+    $("#jsAlert").addClass("d-none");
+    $("#jsAlert").html('');
+}
 
-function validarUsuario () {
-    const inputNombre = document.querySelector('#nombre');
-    const inputApellido = document.querySelector('#apellido');
-    const inputPassword = document.querySelector('#password');
-    const inputCorreo = document.querySelector('#correo');
+function mostrarError(msg) {
+    $("#jsAlert").removeClass("d-none");
+    $("#jsAlert").html(msg);
+}
+
+function validarUsuario (qNombre='#nombre', qApellido='#apellido', qPassword='#password', qCorreo='#correo') {
+    
+    const inputNombre = document.querySelector(qNombre);
+    const inputApellido = document.querySelector(qApellido);
+    const inputPassword = document.querySelector(qPassword);
+    const inputCorreo = document.querySelector(qCorreo);
     const usuarioValido =  inputNombre.value.match(/^[A-Z].*$/);
     const apelidoValido = inputApellido.value.match(/^[A-Z].*$/);
-    const passwordValido =  inputPassword.value.match(/^[A-Z].*$/);//La validacion de la contraseña no esta terminada
-    const correoValido =  inputCorreo.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*$/);
+    const passwordValido =  inputPassword.value.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]+$/);
+    const correoValido =  inputCorreo.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.\w+$/);
+    let errores = [];
     if (!usuarioValido) {
-        alert('El nombre debe empezar por mayusculas');
+        errores.push('El nombre debe empezar por mayusculas');
         inputNombre.style.color = 'red';
     } else {
         inputNombre.style.color = '';
     }
     if (!apelidoValido) {
-        alert('El apellido debe empezar por mayusculas');
+        errores.push('El apellido debe empezar por mayusculas');
         inputApellido.style.color = 'red';
     } else {
         inputApellido.style.color = '';
     }
     if (!passwordValido) {
-        alert('La contraseña debe tener numeros letras y mayusculas');
+        errores.push('La contraseña debe tener numeros letras y mayusculas');
         inputPassword.style.color = 'red';
     } else {
         inputPassword.style.color = '';
     }
     if (!correoValido) {
-        alert('El correo debe llevar @');
+        errores.push('El correo debe tener el formato texto@texto.texto');
         inputCorreo.style.color = 'red';
     } else {
         inputCorreo.style.color = '';
         }
+    if (errores.length) {
+        mostrarError(errores.join('<br/>'));
+    } else {
+        ocultarError();
+    }
     return usuarioValido && apelidoValido && passwordValido && correoValido;
 }
 
+function validarUsuarioModificar() {
+    return validarUsuario('#usuarioModificar', '#apellidoModificar', '#passwordModificar', '#correoModificar');
+}
 
 function validarMascota () {
     const inputId = document.querySelector('#mascota_id');
@@ -44,6 +63,7 @@ function validarMascota () {
     const idValido =  inputId.value.match(/^\d{8}$/);
     const nombreValido =  inputNombre.value.match(/^[A-Z].*$/);
     const edadValido =  inputEdad.value.match(/^\d{1,2}$/);
+    let errores = [];
     if (!idValido) {
         alert('El identificador de la mascota debe estar formado por 8 numeros');
         inputId.style.color = 'red';
@@ -62,6 +82,11 @@ function validarMascota () {
     } else {
         inputEdad.style.color = '';
         }
+        if (errores.length) {
+            mostrarError(errores.join('<br/>'));
+        } else {
+            ocultarError();
+        }
     return idValido && nombreValido && edadValido;
 }
 
@@ -73,6 +98,7 @@ function validarCitas() {
     const idValido =  inputId.value.match(/^\d{8}$/);
     const fechaValido =  inputFecha.value.match(/^[1-31]*\\d*-[1-12]*\\d*-([2][0][2][4])$/);
     const descripcionValido =  inputDescripcion.value.match(/^[A-Z].*$/);
+    let errores = [];
     if (!idValido) {
         alert('El identificador de la mascota debe estar formado por 8 numeros');
         inputId.style.color = 'red';
@@ -90,6 +116,11 @@ function validarCitas() {
         inputDescripcion.style.color = 'red';
     } else {
         inputDescripcion.style.color = '';
+        }
+        if (errores.length) {
+            mostrarError(errores.join('<br/>'));
+        } else {
+            ocultarError();
         }
     return idValido && fechaValido && descripcionValido;
 }

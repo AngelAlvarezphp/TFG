@@ -23,26 +23,26 @@ if(getPost("datos") =="datos"){
             <tr>
                 <input type='hidden' name='id' value='$id'/>
                 <th><labelfor='usuario' class='miEtiqueta'>Usuario</label></th>
-                <th><input type='text' name='usuarioModificar' class='miInput' value='$usuarioNombre' required/></th><br>
+                <th><input type='text' name='usuarioModificar' id='usuarioModificar' class='miInput' value='$usuarioNombre' required/></th><br>
             </tr>
             <tr>
                 <th><labelfor='usuario' class='miEtiqueta'>apellido</label></th>
-                <th><input type='text' name='apellidoModificar' class='miInput' value='$apellido' required/></th><br>
+                <th><input type='text' name='apellidoModificar' id='apellidoModificar' class='miInput' value='$apellido' required/></th><br>
             </tr>
             <tr>
                 <th><label for='password' class='miEtiqueta' >Password</label></th>
-                <th><input type='text' name='passwordModificar' class='miInput' value='$password' required/></th><br>
+                <th><input type='text' name='passwordModificar' id='passwordModificar' class='miInput' value='$password' required/></th><br>
             </tr>
             <tr>
                 <th><label for='correo' class='miEtiqueta' >Correo</label></th>
-                <th><input type='text' name='correoModificar' class='miInput' value='$correo' required/></th><br>
+                <th><input type='text' name='correoModificar'  id='correoModificar' class='miInput' value='$correo' required/></th><br>
             </tr>
             <!-- tr>
                 <th><labelfor='usuario' class='miEtiqueta'>tipo_usuario</label></th>
                 <th><input type='text' name='asdaDS' class='miInput' value='$tipo_usuario' required/></th><br>
             </tr-->
             <tr>
-                <th colspan = 2><button type='submit'>ACTUALIZAR USUARIO</button><th>
+                <th colspan = 2><button onclick='if(!validarUsuarioModificar()){event.preventDefault()}' type='submit'>ACTUALIZAR USUARIO</button><th>
             </tr>
         </form>
     <br>

@@ -53,8 +53,12 @@ if(getPost("datos") =="datos"){
                 $mascota_id = getPost("Mascota_idModificar");
                 $fecha = getPost("FechaModificar");
                 $descripcion = getPost("DescripcionModificar");
-    
-                $cita->modificar_citas($id, $mascota_id, $fecha, $descripcion);
+                $result = $cita->modificar_citas($id, $mascota_id, $fecha, $descripcion);
+                if ($result[0]) {
+                    $mensajeConfirmacion = 'Ok, cita modificada correctamente';
+                } else {
+                    $mensajeConfirmacion = 'Error al modificar la cita: ' . $result[1];
+                }
             }
         
             if (isset($_POST["citasBorrar"])) {
@@ -69,8 +73,12 @@ if(getPost("datos") =="datos"){
                 $mascota_id = getPost("mascota_id");
                 $fecha = getPost("fecha");
                 $descripcion = getPost("descripcion");
-
-                $cita->crear_citas($mascota_id, $fecha, $descripcion);
+                $result = $cita->crear_citas($mascota_id, $fecha, $descripcion);
+                if ($result[0]) {
+                    $mensajeConfirmacion = 'Ok, cita creada correctamente';
+                } else {
+                    $mensajeConfirmacion = 'Error al crear la cita: '. $result[1];
+                }
             }
             $array_cita = $cita -> get_citas();
     
