@@ -22,19 +22,14 @@ class Citas_modelo{
     }
     
     public function modificar_citas($id, $mascota_id, $fecha, $descripcion){
-        $consulta = $this->db->query("select id from mascotas where id = '$mascota_id';");
-        $consultaReg = $consulta->fetch_assoc();
-        
-        if (!isSet($consultaReg['id'])) {
-            return [false, 'La mascota no existe'];
+        $result = validar_mascota($mascota_id);
+        if ($result[0]) {
+            $result = validar_fecha($fecha);
         }
-        $fechaArray = explode('-', $fecha);
-        if (checkdate(intval($fechaArray[1]), intval($fechaArray[2]), intval($fechaArray[0])) === false) {
-            return [false, 'Fecha incorrecta'];
+        if ($result[0]) {
+            $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE cita_id = '$id'");
         }
-        
-        $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE cita_id = '$id'");
-        return [true, ''];
+        return $result;
     }
 
     public function borrar_citas($id){
@@ -42,18 +37,31 @@ class Citas_modelo{
     }
 
     public function crear_citas($mascota_id, $fecha, $descripcion){
+        $result = validar_mascota($mascota_id);
+        if ($result[0]) {
+            $result = validar_fecha($fecha);
+        }
+        if ($result[0]) {
+            $consulta = $this->db->query("INSERT INTO citas (mascota_id, fecha, descripcion) VALUES ('$mascota_id', '$fecha', '$descripcion');");
+        }
+        return $result;
+    }
+
+    public function validar_mascota($mascota_id) {
         $consulta = $this->db->query("select id from mascotas where id = '$mascota_id';");
         $consultaReg = $consulta->fetch_assoc();
         
         if (!isSet($consultaReg['id'])) {
-            return [false, 'La mascota no existe'];;
+            return [false, 'La mascota no existe'];
         }
+        return [true, ''];
+    }
+
+    public function validar_fecha($fecha) {
         $fechaArray = explode('-', $fecha);
         if (checkdate($fechaArray[1], $fechaArray[0], $fechaArray[2])){
             return [false, 'Fecha incorrecta'];
         }
-        
-        $consulta = $this->db->query("INSERT INTO citas (mascota_id, fecha, descripcion) VALUES ('$mascota_id', '$fecha', '$descripcion');");
         return [true, ''];
     }
 

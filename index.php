@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php
+    session_start();
     require_once("controlador/front_controlador.php");
     ?>
 </body>

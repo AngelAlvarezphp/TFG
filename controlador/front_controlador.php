@@ -10,10 +10,19 @@ define ('CONTROLLERS_FOLDER', "controlador/");//Controlador
 define ('DEFAULT_CONTROLLER', "menu"); //usuarios
 //Si no se indica una acción, esta acción es la que se usará por defecto
 define ('DEFAULT_ACTION', "home");
+
 // Obtenemos el controlador por defecto.
-$controller = DEFAULT_CONTROLLER;
-// Si el usuario lo indica, seleccionamos el controlador indicado.
-if ( !empty ( $_GET[ 'controlador' ] ) ) $controller = $_GET [ 'controlador' ];
+if(isset($_SESSION['usuario']) || isset($_POST['usuario'])){
+    // Si el usuario lo indica, seleccionamos el controlador indicado.
+    if ( !empty ( $_GET[ 'controlador' ] ) ) {
+        $controller = $_GET [ 'controlador' ];
+    } else {
+        $controller = 'usuarios';
+    }
+} else {
+    $controller = DEFAULT_CONTROLLER;
+}
+
 // Obtenemos la acción por defecto.
 $action = DEFAULT_ACTION;
 // Si el usuario la indica, seleccionamos la indicada.
