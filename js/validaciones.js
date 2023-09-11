@@ -56,28 +56,28 @@ function validarUsuarioModificar() {
     return validarUsuario('#usuarioModificar', '#apellidoModificar', '#passwordModificar', '#correoModificar');
 }
 
-function validarMascota () {
-    const inputId = document.querySelector('#mascota_id');
-    const inputNombre = document.querySelector('#nombre');
-    const inputEdad = document.querySelector('#edad');
+function validarMascota (qMascota_id='#mascota_id', qNombre='#nombre', qEdad='#edad') {
+    const inputId = document.querySelector(qMascota_id);
+    const inputNombre = document.querySelector(qNombre);
+    const inputEdad = document.querySelector(qEdad);
     const idValido =  inputId.value.match(/^\d{8}$/);
     const nombreValido =  inputNombre.value.match(/^[A-Z].*$/);
     const edadValido =  inputEdad.value.match(/^\d{1,2}$/);
     let errores = [];
     if (!idValido) {
-        alert('El identificador de la mascota debe estar formado por 8 numeros');
+        errores.push('El identificador de la mascota debe estar formado por 8 numeros');
         inputId.style.color = 'red';
     } else {
         inputId.style.color = '';
     }
     if (!nombreValido) {
-        alert('El nombre debe empezar por mayusculas');
+        errores.push('El nombre debe empezar por mayusculas');
         inputNombre.style.color = 'red';
     } else {
         inputNombre.style.color = '';
     }
     if (!edadValido) {
-        alert('La edad debe ser de 1 o 2 cifras');
+        errores.push('La edad debe ser de 1 o 2 cifras');
         inputEdad.style.color = 'red';
     } else {
         inputEdad.style.color = '';
@@ -88,6 +88,10 @@ function validarMascota () {
             ocultarError();
         }
     return idValido && nombreValido && edadValido;
+}
+
+function validarMascotaModificar() {
+    return validarMascota('#mascota_idModificar', '#nombreModificar', '#edadModificar');
 }
 
 
@@ -106,7 +110,7 @@ function validarCitas() {
         inputId.style.color = '';
     }
     if (!fechaValido) {
-        alert('Las citas debe tener el formato debe tener el formato dd-mm-yyy y las citas solo estan disponobles a partir de 2024 ');//-------------------------------------------
+        alert('Las citas debe tener el formato debe tener el formato dd-mm-yyy');
         inputFecha.style.color = 'red';
     } else {
         inputFecha.style.color = '';

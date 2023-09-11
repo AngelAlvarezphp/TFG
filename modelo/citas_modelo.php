@@ -20,7 +20,6 @@ class Citas_modelo{
 
         return $this->datos;
     }
-    
     public function modificar_citas($id, $mascota_id, $fecha, $descripcion){
         $result = validar_mascota($mascota_id);
         if ($result[0]) {
@@ -29,6 +28,7 @@ class Citas_modelo{
         if ($result[0]) {
             $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE cita_id = '$id'");
         }
+        print_r("$result");
         return $result;
     }
 
@@ -48,7 +48,7 @@ class Citas_modelo{
     }
 
     public function validar_mascota($mascota_id) {
-        $consulta = $this->db->query("select id from mascotas where id = '$mascota_id';");
+        $consulta = $this->db->query("SELECT id FROM mascotas WHERE id = '$mascota_id';");
         $consultaReg = $consulta->fetch_assoc();
         
         if (!isSet($consultaReg['id'])) {
