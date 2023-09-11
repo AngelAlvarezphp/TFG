@@ -48,9 +48,17 @@ if ($array_mascota!=0) {
     </div>
     ";
 
-    echo "<div id='modif'>
-    </div>
-    ";
+    echo "<div id='modif'></div>";
+    echo "<div id='jsAlert' class='d-none alert alert-danger'></div>";
+    if(isset($mensajeConfirmacion)) {
+        if (strpos($mensajeConfirmacion, 'Error') === false) {
+            echo '<div class="alert alert-success" role="alert">';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">';
+        }
+        echo $mensajeConfirmacion;
+        echo "</div>";
+    } 
 
     if(isset($array_mascota)){
         echo "<table style = 'background-color: #ffffff80' border><tr><th class ='cabeza'>Id</th><th class ='cabeza'>Nombre</th><th class ='cabeza'>Especie</th><th class ='cabeza'>Edad</th><th class ='cabeza'>Borrar</th><th class ='cabeza'>Modificar</th></tr>";

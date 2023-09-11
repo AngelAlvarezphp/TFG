@@ -67,7 +67,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
                     <input class='' type='button' onclick=modificar('". $usuario["id"] ."') value='MODIFICAR'>
                 </td>";
             echo "</tr>";
-          }
+        }
     echo "</table>";
     echo "<br>";
     }
