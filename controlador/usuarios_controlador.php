@@ -50,6 +50,7 @@ if(getPost("datos") =="datos"){
 
 }else{
     require_once("modelo/usuarios_modelo.php");
+
     function home(){
         $error="";
         $usuario = new Usuarios_modelo();
@@ -68,12 +69,10 @@ if(getPost("datos") =="datos"){
                 $_SESSION['usuario'] = $resultLogin->usuario;
                 $_SESSION['login'] = $resultLogin;
                 
-            }else{
-                require_once("vista/nuevo_usuario_vista.php");
             } 
         
         }
-
+        
         $array_usuario = $usuario -> get_usuarios();
         require_once("vista/nuevo_usuario_vista.php");
 
