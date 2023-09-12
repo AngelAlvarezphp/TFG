@@ -1,6 +1,8 @@
 <div>
 
+
       <?php
+
       if(isset($_SESSION['usuario'])){
       ?>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
