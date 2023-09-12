@@ -5,23 +5,41 @@ if ($array_mascota!=0) {
 
 
     echo"
-
+    
     <div id='inserta'>
     <h3>Crear mascota </h3>
-    <table class = 'tablaForm'>
-        <form class='miForm' action='' method='POST'>
 
-            <tr>
-                <th><labelfor='id' class='miEtiqueta'>Id</label></th>
-                <th><input type='text' name='id' id='mascota_id' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th><labelfor='nombre' class='miEtiqueta'>Nombre</label></th>
-                <th><input type='text' name='nombre' id='nombre' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th><label for='especie' class='miEtiqueta' >Especie</label></th>
-                <th><select name='especie' id='especie'</th>
+    <br>
+    </div>
+    ";
+    ?>
+    <form class="row g-3 needs-validation" novalidate id="mascotasForm" action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
+            <div class="col-md-4">
+                <label for="id" class="form-label"><b>Id</label>
+                <input type="text" class="form-control idOcho" id="mascota_id" name='id' value="" >
+                <div class="valid-feedback">
+                    Verificacion correcta
+                </div>
+                <div class="invalid-feedback nombreHelp">
+                    El id debe tener 8 numeros
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control empiezaMayuscula" id="nombre" name='nombre' value="" required>
+                <div class="valid-feedback">
+                    Verificacion correcta
+                </div>
+                <div class="invalid-feedback">
+                    El nombre debe empezar por may&uacute;sculas
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+            <label for="especie" class="form-label">Especie</label>
+            <select class="form-select" aria-label="Default select example">
+            <option selected disabled value="">elegir</option>
                 <option value='gato'>gato</option>
                 <option value='perro'>perro</option>
                 <option value='conejo'>conejo</option>
@@ -33,20 +51,24 @@ if ($array_mascota!=0) {
                 <option value='iguana'>iguana</option>
                 <option value='camaleon'>camaleon</option>
                 </select>
-
-            </tr>
-            <tr>
-                <th><label for='edad' class='miEtiqueta' >Edad</label></th>
-                <th><input type='text' name='edad' id='edad' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th colspan = 2><button onclick='if(!validarMascota()){event.preventDefault()}' type='submit'>CREAR MASCOTAS</button><th>
-            </tr>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="correo" class="form-label">Edad</label>
+                <div class="input-group has-validation">
+                <input type="text" class="form-control edad" id="edad" name='edad' required>
+                <div class="invalid-feedback">
+                    La edad puede ser de 1 o 2 cifras
+                </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-12 mb-4">
+                <button class="btn btn-primary" type="submit">CREAR MACOTA</button>
+            </div>
         </form>
-    </table>
-    <br>
-    </div>
-    ";
+
+
+    <?php
 
     echo "<div id='modif'></div>";
     echo "<div id='jsAlert' class='d-none alert alert-danger'></div>";

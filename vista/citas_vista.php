@@ -9,29 +9,52 @@ if ($array_cita!=0) {
 
     <div id='inserta'>
     <h3>Crear cita </h3>
-    <table class = 'tablaForm'>
-        <form class='miForm' action='' method='POST'>
 
-            <tr>
-                <th><labelfor='mascota_id' class='miEtiqueta'>Mascota_id</label></th>
-                <th><input type='text' name='mascota_id' id=mascota_id' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th><label for='fecha' class='miEtiqueta' >Fecha</label></th>
-                <th><input type='text' name='fecha' id='fecha' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th><label for='descripcion' class='miEtiqueta' >Descripcion</label></th>
-                <th><input type='text' name='descripcion' id='descripcion' class='miInput' required/></th>
-            </tr>
-            <tr>
-                <th colspan = 2><button onclick='if(!validarCitas()){event.preventDefault()}' type='submit'>CREAR CITAS</button><th>
-            </tr>
-        </form>
-    </table>
     <br>
     </div>
     ";
+
+    ?>
+        <form class="row g-3 needs-validation" novalidate id="citasForm" action='index.php?controlador=citas&action=modificar_citas' method='POST'>
+            <div class="col-md-4">
+                <label for="mascota_id" class="form-label"><b>Mascota id</label>
+                <input type="text" class="form-control idOcho" id="mascota_id" name='mascota_id' value="" >
+                <div class="valid-feedback">
+                    Verificacion correcta
+                </div>
+                <div class="invalid-feedback nombreHelp">
+                    El id debe tener 8 numeros
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="text" class="form-control fecha" id="fecha" name='fecha' value="" required>
+                <div class="valid-feedback">
+                    Verificacion correcta
+                </div>
+                <div class="invalid-feedback">
+                    La fecha debe tener el formato dd-mm-yyyy
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <input type="text" class="form-control empiezaMayuscula" id="descripcion" name='descripcion' value="" required>
+                <div class="valid-feedback">
+                    Verificacion correcta
+                </div>
+                <div class="invalid-feedback">
+                    La descripcion debe empezar por mayuscula
+                </div>
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-12 mb-4">
+                <button class="btn btn-primary" type="submit">CREAR CITAS</button>
+            </div>
+        </form>
+    <?php
 
     echo "<div id='modif'></div>";
     echo "<div id='jsAlert' class='d-none alert alert-danger'></div>";

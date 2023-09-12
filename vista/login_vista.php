@@ -7,22 +7,18 @@ require_once("controlador/usuarios_controlador.php");
 
     <h1 class=''>Iniciar Sesión</h1>
 
-    <form class='' action='' method='POST'>
-        
-        <div class="login-form">    
-            <div>
-                <label for='usuario' class='miEtiqueta' >Usuario</label>
-                <input class='miInput' type='text' name='usuario' class='' placeholder='Usuario' required/>
-            </div>
-            <div>
-                <label for='password' class='miEtiqueta' >Password</label>
-                <input class='miInput' type='password' name='pass' placeholder='Password' class='' required=''/>
-            </div>        
-            <div>
-                <button type='submit' class=''> iniciar sesion </button>
-            </div>
-    </form>
-</div>
+<form class='' action='' method='POST'>
+    <div class="login-form">
+        <label for="usuario">Usuario</label>
+        <input type="text" class="miInput" name="usuario" placeholder="introducir usuario" required/>
+    </div>
+    <div class="login-form">
+        <label for='password'>Password</label>
+        <input type="password" class="miInput" name="pass" placeholder="Password" required/>
+    </div>
+    <button type="submit" class="">Iniciar sesion</button>
+</form>
+
 
 <div>
 

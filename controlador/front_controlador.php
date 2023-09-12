@@ -19,7 +19,10 @@ if(isset($_SESSION['usuario']) || isset($_POST['usuario'])){
     } else {
         $controller = 'usuarios';
     }
-} else {
+} else if (isset($_GET['controlador']) && $_GET [ 'controlador' ] === 'mapa') {
+    $controller = $_GET [ 'controlador' ];
+}
+if (!isset($controller) || $controller == '') {
     $controller = DEFAULT_CONTROLLER;
 }
 
@@ -29,12 +32,12 @@ $action = DEFAULT_ACTION;
 if ( !empty ( $_GET [ 'action' ] ) ) $action = $_GET [ 'action' ];
 //Ya tenemos el controlador y la accion
 //Formamos el nombre del fichero que contiene nuestro controlador
-$controller = CONTROLLERS_FOLDER . $controller . '_controlador.php';
+$controllerFile = CONTROLLERS_FOLDER . $controller . '_controlador.php';
 //_controlador.php
 //Si la variable $controller es un fichero lo requerimos
 try
 {
-if ( is_file ( $controller ) ) require_once ($controller);
+if ( is_file ( $controllerFile ) ) require_once ($controllerFile);
 else
 throw new Exception ('El controlador no existe - 404 not found');
 //Si la variable $action es una funcion la ejecutamos o detenemos el script

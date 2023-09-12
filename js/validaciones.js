@@ -9,16 +9,26 @@ function mostrarError(msg) {
     $("#jsAlert").html(msg);
 }
 
+
+const patterns = {
+    empiezaMayuscula: /^[A-Z].*$/,
+    password: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]+$/,
+    email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i,
+    idOcho: /^\d{8}$/,
+    edad: /^\d{1,2}$/,
+    fecha: /^[1-31]*\\d*-[1-12]*\\d*-([2][0][2][4])$/
+};
+
 function validarUsuario (qNombre='#nombre', qApellido='#apellido', qPassword='#password', qCorreo='#correo') {
     
     const inputNombre = document.querySelector(qNombre);
     const inputApellido = document.querySelector(qApellido);
     const inputPassword = document.querySelector(qPassword);
     const inputCorreo = document.querySelector(qCorreo);
-    const usuarioValido =  inputNombre.value.match(/^[A-Z].*$/);
-    const apelidoValido = inputApellido.value.match(/^[A-Z].*$/);
-    const passwordValido =  inputPassword.value.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]+$/);
-    const correoValido =  inputCorreo.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.\w+$/);
+    const usuarioValido =  inputNombre.value.match(patterns.empiezaMayuscula);
+    const apelidoValido = inputApellido.value.match(patterns.empiezaMayuscula);
+    const passwordValido =  inputPassword.value.match(patterns.password);
+    const correoValido =  inputCorreo.value.match(patterns.email);
     let errores = [];
     if (!usuarioValido) {
         errores.push('El nombre debe empezar por mayusculas');
@@ -60,9 +70,9 @@ function validarMascota (qMascota_id='#mascota_id', qNombre='#nombre', qEdad='#e
     const inputId = document.querySelector(qMascota_id);
     const inputNombre = document.querySelector(qNombre);
     const inputEdad = document.querySelector(qEdad);
-    const idValido =  inputId.value.match(/^\d{8}$/);
-    const nombreValido =  inputNombre.value.match(/^[A-Z].*$/);
-    const edadValido =  inputEdad.value.match(/^\d{1,2}$/);
+    const idValido =  inputId.value.match(patterns.idOcho);
+    const nombreValido =  inputNombre.value.match(patterns.empiezaMayuscula);
+    const edadValido =  inputEdad.value.match(patterns.edad);
     let errores = [];
     if (!idValido) {
         errores.push('El identificador de la mascota debe estar formado por 8 numeros');
@@ -99,9 +109,9 @@ function validarCitas() {
     const inputId = document.querySelector('#mascota_id');
     const inputFecha = document.querySelector('#fecha');
     const inputDescripcion = document.querySelector('#descripcion');
-    const idValido =  inputId.value.match(/^\d{8}$/);
-    const fechaValido =  inputFecha.value.match(/^[1-31]*\\d*-[1-12]*\\d*-([2][0][2][4])$/);
-    const descripcionValido =  inputDescripcion.value.match(/^[A-Z].*$/);
+    const idValido =  inputId.value.match(patterns.idOcho);
+    const fechaValido =  inputFecha.value.match(patterns.fecha);
+    const descripcionValido =  inputDescripcion.value.match(patterns.empiezaMayuscula);
     let errores = [];
     if (!idValido) {
         alert('El identificador de la mascota debe estar formado por 8 numeros');
@@ -110,7 +120,7 @@ function validarCitas() {
         inputId.style.color = '';
     }
     if (!fechaValido) {
-        alert('Las citas debe tener el formato debe tener el formato dd-mm-yyy');
+        alert('La fecha debe tener el formato dd-mm-yyy');
         inputFecha.style.color = 'red';
     } else {
         inputFecha.style.color = '';
@@ -128,3 +138,65 @@ function validarCitas() {
         }
     return idValido && fechaValido && descripcionValido;
 }
+
+
+function validate(field) {
+    const regex = findPattern(field);
+    if (regex) {
+        if (regex.test(field.value)) {
+            jQuery(field).removeClass('is-invalid');
+            jQuery(field).addClass('is-valid');
+            field.setCustomValidity('');
+          } else {
+            jQuery(field).removeClass('is-valid');
+            jQuery(field).addClass('is-invalid');
+            field.setCustomValidity('Error');
+          }
+    }
+}
+
+function findPattern(field) {
+    const classes = field.classList;
+    for (className of classes) {
+        if (patterns[className]) {
+            return patterns[className];
+        }
+    }
+    return null;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const forms = document.querySelectorAll('.needs-validation');
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated')
+    }, false)
+  });
+
+  const inputs = document.querySelectorAll('input');
+
+    inputs.forEach((input) => {
+        input.addEventListener('keyup', (e) => {
+            validate(e.target);
+        });
+    });
+    
+
+    /*
+  const usuariosForm = document.querySelector('#usuariosForm');
+  if (usuariosForm) {
+      usuariosForm.addEventListener('submit', event => {
+          if (!validarUsuario()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+      });
+  }
+  */
+});

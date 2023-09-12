@@ -31,7 +31,7 @@ if(getPost("datos") =="datos"){
             </tr>
             <tr>
                 <th><label for='password' class='miEtiqueta' >Password</label></th>
-                <th><input type='text' name='passwordModificar' id='passwordModificar' class='miInput' value='$password' required/></th><br>
+                <th><input type='password' name='passwordModificar' id='passwordModificar' class='miInput' value='$password' required/></th><br>
             </tr>
             <tr>
                 <th><label for='correo' class='miEtiqueta' >Correo</label></th>
@@ -50,6 +50,7 @@ if(getPost("datos") =="datos"){
 
 }else{
     require_once("modelo/usuarios_modelo.php");
+
     function home(){
         $error="";
         $usuario = new Usuarios_modelo();
@@ -68,12 +69,10 @@ if(getPost("datos") =="datos"){
                 $_SESSION['usuario'] = $resultLogin->usuario;
                 $_SESSION['login'] = $resultLogin;
                 
-            }else{
-                require_once("vista/nuevo_usuario_vista.php");
             } 
         
         }
-
+        
         $array_usuario = $usuario -> get_usuarios();
         require_once("vista/nuevo_usuario_vista.php");
 

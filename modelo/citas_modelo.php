@@ -21,14 +21,13 @@ class Citas_modelo{
         return $this->datos;
     }
     public function modificar_citas($id, $mascota_id, $fecha, $descripcion){
-        $result = validar_mascota($mascota_id);
+        $result = $this->validar_mascota($mascota_id);
         if ($result[0]) {
-            $result = validar_fecha($fecha);
+            $result = $this->validar_fecha($fecha);
         }
         if ($result[0]) {
             $consulta =$this->db->query("UPDATE citas SET mascota_id = '$mascota_id', fecha = '$fecha', descripcion = '$descripcion' WHERE cita_id = '$id'");
         }
-        print_r("$result");
         return $result;
     }
 
@@ -37,9 +36,9 @@ class Citas_modelo{
     }
 
     public function crear_citas($mascota_id, $fecha, $descripcion){
-        $result = validar_mascota($mascota_id);
+        $result = $this->validar_mascota($mascota_id);
         if ($result[0]) {
-            $result = validar_fecha($fecha);
+            $result = $this->validar_fecha($fecha);
         }
         if ($result[0]) {
             $consulta = $this->db->query("INSERT INTO citas (mascota_id, fecha, descripcion) VALUES ('$mascota_id', '$fecha', '$descripcion');");
