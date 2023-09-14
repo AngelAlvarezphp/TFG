@@ -1,8 +1,8 @@
 window.initMap = function() {
     let mapDiv = document.getElementById("map");
-    let Monaco = new google.maps.LatLng(40.4165000, -3.7025600);
+    let center = new google.maps.LatLng(37.97693232177627, -1.1295237985234117);
     let options = {
-      center: Monaco,
+      center,
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: true,
@@ -10,9 +10,15 @@ window.initMap = function() {
   if (mapDiv) {
     let map = new google.maps.Map(mapDiv, options);
     let marker = new google.maps.Marker({
-      position: { lat:40.4165000 , lng:-3.7025600},
+      position: { lat: 37.97748875640045, lng: -1.1311673374727191},
       map: map,
-      title: "veterinaria"
+      title: "El Carmen"
+    });
+    new google.maps.Marker({ 
+      position: { lat: 37.97637588715209, lng: -1.1295237985234117},
+      map: map,
+      title: "Esperanza"
+      ,
     });
   }
    
