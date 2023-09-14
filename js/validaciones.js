@@ -16,7 +16,7 @@ const patterns = {
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i,
     idOcho: /^\d{8}$/,
     edad: /^\d{1,2}$/,
-    fecha: /^[1-31]*\\d*-[1-12]*\\d*-([2][0][2][4])$/
+    fecha: /^\d{4}-\d{2}-\d{2}$/
 };
 
 function validarUsuario (qNombre='#nombre', qApellido='#apellido', qPassword='#password', qCorreo='#correo') {

@@ -38,7 +38,7 @@ if ($array_mascota!=0) {
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
             <label for="especie" class="form-label">Especie</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" name="especie" aria-label="especie">
             <option selected disabled value="">elegir</option>
                 <option value='gato'>gato</option>
                 <option value='perro'>perro</option>
@@ -53,7 +53,7 @@ if ($array_mascota!=0) {
                 </select>
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
-                <label for="correo" class="form-label">Edad</label>
+                <label for="edad" class="form-label">Edad</label>
                 <div class="input-group has-validation">
                 <input type="text" class="form-control edad" id="edad" name='edad' required>
                 <div class="invalid-feedback">
@@ -66,9 +66,9 @@ if ($array_mascota!=0) {
                 <button class="btn btn-primary" type="submit">CREAR MACOTA</button>
             </div>
         </form>
-
-
     <?php
+    
+    echo "mascota_id";
 
     echo "<div id='modif'></div>";
     echo "<div id='jsAlert' class='d-none alert alert-danger'></div>";

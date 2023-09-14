@@ -32,7 +32,7 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
                     Verificacion correcta
                 </div>
                 <div class="invalid-feedback">
-                    El nombre debe empezar por may&uacute;sculas
+                    El apellido debe empezar por may&uacute;sculas
                 </div>
             </div>
             <div class="col-md-8 col-sm-0"></div>

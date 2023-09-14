@@ -17,6 +17,7 @@ if(getPost("datos") =="datos"){
     $edad = getPost("edad");
     $dueno_id = getPost("dueno_id");
 
+    /*
     echo"
     <h3>Actualizar mascota</h3>
         <form class='miForm' action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
@@ -55,6 +56,68 @@ if(getPost("datos") =="datos"){
         </form>
     <br>
     ";
+*/
+?>
+    <h3>Actualizar macota</h3>
+    <form class='miForm' action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
+        <tr>
+        <input type='hidden' name='dueno_id' value='$dueno_id'/>
+
+            <div class="col-md-4">
+                <label for="usuario" class="form-label"> <b>Usuario</label>
+                <th><input type="text" class="form-control idOcho" id="mascota_idModificar" name='IdModificar' value ='$id' required/></th><br>
+                <div class="valid-feedback">
+                    Verificacion correcta
+            </div>
+                <div class="invalid-feedback nombreHelp">
+                    El id debe tener 8 numeros
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="nombre" class="form-label">Nombre</label>
+                <th><input type="text" class="form-control empiezaMayuscula" id="nombreModificar" name='NombreModificar' value = '$nombre' required/></th><br>
+                <div class="valid-feedback">
+                    Verificacion correcta
+            </div>
+                <div class="invalid-feedback">
+                    El Nombre debe empezar por may&uacute;sculas
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+            <label for="especie" class="form-label">Especie</label>
+            <select id="especieModificar" class="form-select" name="EspecieModificar" aria-label="especie"value='$especie' required><br>
+            <option selected disabled value="">elegir</option>
+                <option value='gato'>gato</option>
+                <option value='perro'>perro</option>
+                <option value='conejo'>conejo</option>
+                <option value='hamster'>hamster</option>
+                <option value='loro'>loro</option>
+                <option value='perdiz'>perdiz</option>
+                <option value='paloma'>paloma</option>
+                <option value='tortuga'>tortuga</option>
+                <option value='iguana'>iguana</option>
+                <option value='camaleon'>camaleon</option>
+                </select>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-md-4">
+                <label for="edad" class="form-label">Edad</label>
+                <div class="input-group has-validation">
+                <input type="text" class="form-control edad" id="edadModificar" name='EdadModificar'value='$edad' required><br>
+            <div class="invalid-feedback">
+                    La edad puede ser de 1 o 2 cifras
+            </div>
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-0"></div>
+            <div class="col-12 mb-4">
+            <th colspan = 2><button onclick='if(!validarMascota()){event.preventDefault()}' type='submit'>ACTUALIZAR MASCOTA</button><th>
+            </div>
+    </form>
+<?php
+
+
 
 }else{
 
