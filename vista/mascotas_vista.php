@@ -3,17 +3,10 @@
 if ($array_mascota!=0) {
     require_once("vista/menu_vista.php");
 
-
-    echo"
-    
-    <div id='inserta'>
-    <h3>Crear mascota </h3>
-
-    <br>
-    </div>
-    ";
     ?>
-    <form class="row g-3 needs-validation" novalidate id="mascotasForm" action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
+    <div id='inserta'>
+        <h3>Crear mascota </h3>
+        <form class="row g-3 needs-validation" novalidate id="mascotasForm" action='index.php?controlador=mascotas&action=modificar_mascotas' method='POST'>
             <div class="col-md-4">
                 <label for="id" class="form-label"><b>Id</label>
                 <input type="text" class="form-control idOcho" id="mascota_id" name='id' value="" >
@@ -66,6 +59,8 @@ if ($array_mascota!=0) {
                 <button class="btn btn-primary" type="submit">CREAR MACOTA</button>
             </div>
         </form>
+        <br>
+    </div>
     <?php
     
     echo "mascota_id";

@@ -3,18 +3,9 @@
 
 if ($array_cita!=0) {
     require_once("vista/menu_vista.php");
-
-
-    echo"
-
-    <div id='inserta'>
-    <h3>Crear cita </h3>
-
-    <br>
-    </div>
-    ";
-
     ?>
+    <div id='inserta'>
+        <h3>Crear cita </h3>
         <form class="row g-3 needs-validation" novalidate id="citasForm" action='index.php?controlador=citas&action=modificar_citas' method='POST'>
             <div class="col-md-4">
                 <label for="mascota_id" class="form-label"><b>Mascota id</label>
@@ -54,6 +45,8 @@ if ($array_cita!=0) {
                 <button class="btn btn-primary" type="submit">CREAR CITAS</button>
             </div>
         </form>
+        <br>
+    </div>
     <?php
 
     echo "<div id='modif'></div>";

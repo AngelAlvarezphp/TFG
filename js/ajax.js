@@ -15,6 +15,7 @@ function modificar(i){
         url: 'controlador/usuarios_controlador.php',
         success: function (response){
             $("#modif").html(response);
+            attachValidationsToForms();
         },
         error: function(error){
             console.log(error);
