@@ -21,3 +21,13 @@
     ?>
 </body>
 </html>
+<?php
+/*
+
+git init
+git remote add origin https://github.com/AngelAlvarezphp/TFG.git
+git checkout -t origin main
+git pull
+
+*/
+?>

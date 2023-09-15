@@ -4,15 +4,9 @@
 if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la tabla
     require_once("vista/menu_vista.php");
 
-    echo"
-
-    <div id='inserta'>
-    <h3>Crear usuario</h3>
-    
-    <br>
-    </div>
-    ";
     ?>
+    <div id='inserta'>
+        <h3>Crear usuario</h3>
         <form class="row g-3 needs-validation" novalidate id="usuariosForm" action='index.php?controlador=usuarios&action=modificar_usuarios' method='POST'>
             <div class="col-md-4">
                 <label for="nombre" class="form-label"> <b>Usuario</label>
@@ -58,10 +52,12 @@ if(isset($_SESSION['usuario'])){//si se ha iniciado sesion pinta el menu y la ta
                 </div>
             </div>
             <div class="col-md-8 col-sm-0"></div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-4 mt-4">
                 <button class="btn btn-primary" type="submit">CREAR USUARIO</button>
             </div>
         </form>
+        <br>
+    </div>
     <?php
 
     echo "<div id='modif'></div>";
