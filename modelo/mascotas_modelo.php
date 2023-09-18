@@ -22,10 +22,7 @@ class Mascotas_modelo{
     }
     
     public function modificar_mascotas($id, $nombre, $especie, $edad, $dueno_id){
-<<<<<<< HEAD
-=======
         
->>>>>>> 7eab426e8bbef0adb79dd40cea2ce412fa1678de
         $consulta =$this->db->query("UPDATE mascotas SET nombre = '$nombre', especie = '$especie', edad = '$edad' WHERE id='$id';");
     }
 

@@ -40,10 +40,7 @@ function modificar_mascotas(i){
         url: 'controlador/mascotas_controlador.php',
         success: function (response){
             $("#modif").html(response);
-<<<<<<< HEAD
-=======
             attachValidationsToForms();
->>>>>>> 7eab426e8bbef0adb79dd40cea2ce412fa1678de
         },
         error: function(error){
             console.log(error);
@@ -69,10 +66,7 @@ function modificar_citas(i){
         url: 'controlador/citas_controlador.php',
         success: function (response){
             $("#modif").html(response);
-<<<<<<< HEAD
-=======
             attachValidationsToForms();
->>>>>>> 7eab426e8bbef0adb79dd40cea2ce412fa1678de
         },
         error: function(error){
             console.log(error);
