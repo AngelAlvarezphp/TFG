@@ -14,7 +14,7 @@ require_once("controlador/usuarios_controlador.php");
     <h1 class=''>Iniciar Sesión</h1>
         <form class="row g-3 needs-validation" id="usuariosForm"  method='POST'>
             <div class="col-md-4">
-                <label for="usuario" class="form-label"> <b>Usuario</label>
+                <label for="nombre" class="form-label">Usuario</label>
                 <input type="text" class="form-control " id="nombre" name='usuario' placeholder="introducir usuario" required/>
             </div>
 
