@@ -1,14 +1,4 @@
-<?php
-require_once("vista/login_vista.php");
-require_once("controlador/usuarios_controlador.php");
 
-
-if(isset($_POST["registrar"])) {
-
-
-}
-
-    ?>
     <div id='registrar'>
         <h3>Crear usuario</h3>
         <form class="row g-3 needs-validation" novalidate id="usuariosForm" action='index.php?controlador=usuarios&action=modificar_usuarios' method='POST'>
@@ -62,7 +52,4 @@ if(isset($_POST["registrar"])) {
         </form>
         <br>
     </div>
-    <?php
-
-
-    ?>
+    

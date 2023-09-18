@@ -25,7 +25,7 @@ if(getPost("datos") =="datos"){
             <input type='hidden' name='dueno_id' value ='<?= $dueno_id ?>'/>
             <div class="col-md-4">
                 <label for="usuario" class="form-label"> <b>Usuario</label>
-                <th><input type="text" class="form-control idOcho" id="mascota_idModificar" name='mascota_idModificar' value ='<?= $id ?>' required/></th><br>
+                <th><input type="text" class="form-control idOcho" id="mascota_idModificar" name='IdModificar' value ='<?= $id ?>' required/></th><br>
                 <div class="valid-feedback">
                     Verificacion correcta
             </div>
@@ -46,12 +46,12 @@ if(getPost("datos") =="datos"){
             </div>
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
-            <label for="especie" class="form-label">Especie</label>
-            <select class="form-select" name="EspecieModificar" aria-label="especie"value ='<?= $especie ?>' required><br>
-            <option selected disabled value="">elegir</option>
-                <option value='gato'>gato</option>
-                <option value='perro'>perro</option>
-                <option value='conejo'>conejo</option>
+            <label for="especie" class="form-label">Especie <?= $especie ?></label>
+            <select class="form-select" name="EspecieModificar" aria-label="especie" required><br>
+                <option value="">elegir</option>
+                <option value='gato' <?= $especie === 'gato' ? 'selected' : '' ?>>gato</option>
+                <option value='perro' <?= $especie === 'perro' ? 'selected' : '' ?>>perro</option>
+                <option value='conejo' <?= $especie === 'conejo' ? 'selected' : '' ?>>conejo</option>
                 <option value='hamster'>hamster</option>
                 <option value='loro'>loro</option>
                 <option value='perdiz'>perdiz</option>
@@ -59,7 +59,7 @@ if(getPost("datos") =="datos"){
                 <option value='tortuga'>tortuga</option>
                 <option value='iguana'>iguana</option>
                 <option value='camaleon'>camaleon</option>
-                </select>
+            </select>
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
                 <label for="edad" class="form-label">Edad</label>
@@ -81,12 +81,12 @@ if(getPost("datos") =="datos"){
 
 
 }else{
-    echo getPost("datos");
+
     require_once("modelo/mascotas_modelo.php");
     function modificar_mascotas(){
     
         $mascota = new Mascotas_modelo();
-    
+
         if (isset($_POST['IdModificar']) && isset($_POST['NombreModificar']) && isset($_POST['EspecieModificar']) && isset($_POST['EdadModificar'])){
             
             

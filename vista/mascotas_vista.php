@@ -15,7 +15,7 @@ if ($array_mascota!=0) {
                 </div>
                 <div class="invalid-feedback nombreHelp">
                     El id debe tener 8 numeros
-            </div>
+                </div>
             </div>
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
@@ -30,33 +30,34 @@ if ($array_mascota!=0) {
             </div>
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
-            <label for="especie" class="form-label">Especie</label>
-            <select class="form-select" name="especie" aria-label="especie">
-            <option selected disabled value="">elegir</option>
-                <option value='gato'>gato</option>
-                <option value='perro'>perro</option>
-                <option value='conejo'>conejo</option>
-                <option value='hamster'>hamster</option>
-                <option value='loro'>loro</option>
-                <option value='perdiz'>perdiz</option>
-                <option value='paloma'>paloma</option>
-                <option value='tortuga'>tortuga</option>
-                <option value='iguana'>iguana</option>
-                <option value='camaleon'>camaleon</option>
+                <label for="especie" class="form-label">Especie</label>
+                <select class="form-select" name="especie" aria-label="especie">
+                    <option selected disabled value="">elegir</option>
+                    <option value='gato'>gato</option>
+                    <option value='perro'>perro</option>
+                    <option value='conejo'>conejo</option>
+                    <option value='hamster'>hamster</option>
+                    <option value='loro'>loro</option>
+                    <option value='perdiz'>perdiz</option>
+                    <option value='paloma'>paloma</option>
+                    <option value='tortuga'>tortuga</option>
+                    <option value='iguana'>iguana</option>
+                    <option value='camaleon'>camaleon</option>
                 </select>
-            <div class="col-md-8 col-sm-0"></div>
-            <div class="col-md-4">
-                <label for="edad" class="form-label">Edad</label>
-                <div class="input-group has-validation">
-                <input type="text" class="form-control edad" id="edad" name='edad' required>
-                <div class="invalid-feedback">
-                    La edad puede ser de 1 o 2 cifras
+                <div class="col-md-8 col-sm-0"></div>
+                <div class="col-md-4">
+                    <label for="edad" class="form-label">Edad</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control edad" id="edad" name='edad' required>
+                        <div class="invalid-feedback">
+                        La edad puede ser de 1 o 2 cifras
+                        </div>
+                    </div>
                 </div>
+                <div class="col-md-8 col-sm-0"></div>
+                <div class="col-12 mb-4 mt-4">
+                    <button class="btn btn-primary" type="submit">CREAR MASCOTA</button>
                 </div>
-            </div>
-            <div class="col-md-8 col-sm-0"></div>
-            <div class="col-12 mb-4 mt-4">
-                <button class="btn btn-primary" type="submit">CREAR MASCOTA</button>
             </div>
         </form>
         <br>
