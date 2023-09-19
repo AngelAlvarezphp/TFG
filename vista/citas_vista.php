@@ -41,7 +41,7 @@ if ($array_cita!=0) {
             </div>
             </div>
             <div class="col-md-8 col-sm-0"></div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-4 mt-4">
                 <button class="btn btn-primary" type="submit">CREAR CITAS</button>
             </div>
         </form>

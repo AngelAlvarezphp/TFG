@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/map.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7CCok1QBjuzlRdub7E8-1qhHhwYRPzIU&callback=initMap"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/ico" href="/favicon.ico"/>
 </head>
 <body>
     <?php

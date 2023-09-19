@@ -15,40 +15,14 @@ if(getPost("datos") =="datos"){
     $fecha = getPost("fecha");
     $descripcion = getPost("descripcion");
 
-/*
-    echo"
-    <h3>Actualizar cita</h3>
-        <form class='miForm' action='index.php?controlador=citas&action=modificar_citas' method='POST'>
-            <tr>
-                <input type='hidden' name='id' value='$id'/>
-
-                <th><labelfor='mascota_id' class='Cita'>Id</label></th>
-                <th><input type='text' name='Mascota_idModificar' class='miInput' value='$mascota_id' required/></th><br>
-            </tr>
-            <tr>
-                <th><labelfor='fecha' class='miEtiqueta'> Fecha</label></th>
-                <th><input type='text' name='FechaModificar' class='miInput' value='$fecha' required/></th><br>
-            </tr>
-            <tr>
-                <th><label for='descripcion' class='miEtiqueta' >Descripcion</label></th>
-                <th><input type='text' name='DescripcionModificar' class='miInput' value='$descripcion' required/></th><br>
-            </tr>
-            <tr>
-                <th colspan = 2><button type='submit'>ACTUALIZAR CITAS</button><th>
-            </tr>
-        </form>
-    <br>
-    ";
-*/
-
 ?>
     <h3>Actualizar cita</h3>
-        <form class='row g-3 needs-validation' novalidate id="citasForm" action='index.php?controlador=citas&action=modificar_citas' method='POST'>
-            <tr>
-                <input type='hidden' name='id' value='$id'/>
+    <form class='row g-3 needs-validation' novalidate id="citasForm" action='index.php?controlador=citas&action=modificar_citas' method='POST'>
+        <tr>
+                <input type='hidden' name='id' value ='<?= $id ?>'/>
                 <div class="col-md-4">
                 <label for="mascota_id" class="form-label"><b>Id</label>
-                <input type="text" class="form-control idOcho" id="Mascota_idModificar" name='Mascota_idModificar' value="$mascota_id" required/><br>
+                <input type="text" class="form-control idOcho" id="Mascota_idModificar" name='Mascota_idModificar' value ='<?= $mascota_id ?>' required/><br>
                 <div class="valid-feedback">
                     Verificacion correcta
                 </div>
@@ -59,7 +33,7 @@ if(getPost("datos") =="datos"){
                 <div class="col-md-8 col-sm-0"></div>
                 <div class="col-md-4">
                 <label for="fecha" class="form-label">Fecha</label>
-                <input type="text" class="form-control fecha" id="FechaModificar" name='FechaModificar' value="$fecha" required><br>
+                <input type="text" class="form-control fecha" id="FechaModificar" name='FechaModificar' value ='<?= $fecha ?>' required><br>
                 <div class="valid-feedback">
                     Verificacion correcta
                 </div>
@@ -70,7 +44,7 @@ if(getPost("datos") =="datos"){
             <div class="col-md-8 col-sm-0"></div>
             <div class="col-md-4">
                 <label for="descripcion" class="form-label">Descripcion</label>
-                <input type="text" class="form-control empiezaMayuscula" id="DescripcionModificar" name='DescripcionModificar' value="$descripcion" required>
+                <input type="text" class="form-control empiezaMayuscula" id="DescripcionModificar" name='DescripcionModificar' value ='<?= $descripcion ?>' required>
                 <div class="valid-feedback">
                     Verificacion correcta
                 </div>
@@ -80,11 +54,11 @@ if(getPost("datos") =="datos"){
             </div>
             </div>
             <div class="col-md-8 col-sm-0"></div>
-            <div class="col-12 mb-4">
+            <div class="col-12 mb-4 mt-4">
                 <button class="btn btn-primary" type="submit">ACTUALIZAR CITAS</button>
             </div>
-            </tr>
-        </form>
+        </tr>
+    </form>
 <?php
 
 }else{
